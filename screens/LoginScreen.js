@@ -21,7 +21,7 @@ const LoginScreen = ({navigation}) => {
   const passwordInputRef = createRef();
 
   const handleSubmitPress = () => {
-    navigation.navigate('Home')
+    navigation.navigate('DrawerNavigationRoutes')
   };
 
   return (
