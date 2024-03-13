@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React, { useEffect } from "react";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
@@ -12,14 +12,12 @@ const PreparingScreen = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <SafeAreaView className="bg-[#00ccbb] flex-1 justify-center items-center">
-      <Animatable.Image
+    <SafeAreaView className="bg-[#FC6D3F] flex-1 justify-center items-center">
+      <Image
         source={require("./assets/delivery-boy.gif")}
+        style={{ width: 150, height: 150 }}
         animation="slideInUp"
-        iterationCount={1}
-        className="h-96 w-96"
       />
-
       <Animatable.Text
         animation="slideInUp"
         iterationCount={1}
