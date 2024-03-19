@@ -15,6 +15,8 @@ import BasketScreen from "./BasketScreen";
 import PreparingScreen from "./PreparingScreen";
 import DeliveryScreen from "./DeliveryScreen";
 import MapViewScreen from "./MapViewScreen";
+import ViewProfile from "./ViewProfile";
+import FavoriteScreen from "./FavoriteScreen";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -67,15 +69,15 @@ const homeScreenStack = ({ navigation }) => {
 };
 const viewProfileStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator initialRouteName="ViewProfile">
+      <Stack.Screen name="ViewProfile" component={ViewProfile} />
     </Stack.Navigator>
   );
 };
-const settingScreenStack = ({ navigation }) => {
+const favouritesStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator initialRouteName="Favorite">
+      <Stack.Screen name="Favorite" component={FavoriteScreen} />
     </Stack.Navigator>
   );
 };
@@ -110,9 +112,9 @@ const DrawerNavigatorRoutes = (props) => {
         component={viewProfileStack}
       />
       <Drawer.Screen
-        name="settingScreenStack"
-        options={{ drawerLabel: "Settings" }}
-        component={settingScreenStack}
+        name="favouritesStack"
+        options={{ drawerLabel: "Favorites" }}
+        component={favouritesStack}
       />
       <Drawer.Screen
         name="termAndPrivacyPolicyStack"

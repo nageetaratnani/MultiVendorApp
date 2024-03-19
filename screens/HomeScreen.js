@@ -103,7 +103,7 @@ const HomeScreen = ({ navigation }) => {
               fontSize: 16,
             }}
           >
-            {truncatedLocationName}
+            {truncatedLocationName.trim()}
           </Text>
           <Text
             style={{
@@ -159,25 +159,17 @@ const HomeScreen = ({ navigation }) => {
       });
   }, []);
 
-  // const handleSearch = (text) => {
-  //   setSearchQuery(text);
-  //   const filtered = featuredCategories.filter((category) =>
-  //     category.name.toLowerCase().includes(text.toLowerCase())
-  //   );
 
-  //   setFilteredCategories(filtered);
-  // };
   const handleSearch = (text) => {
     setSearchQuery(text);
     const filtered = featuredCategories.filter((category) =>
       category.restaurants.some((restaurant) => {
-        console.log('test',restaurant.name)
-        restaurant.name.toLowerCase().includes(text.toLowerCase());
+        return restaurant.name.toLowerCase().includes(text.toLowerCase());
       })
     );
     setFilteredCategories(filtered);
   };
-
+  
   return (
     <>
       <SafeAreaView style={{ flex: 1 }} className="bg-white">

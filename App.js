@@ -36,6 +36,7 @@ const Auth = () => {
 };
 
 const App = () => {
+  
   return (
     <NavigationContainer>
       <Provider store={store}>
