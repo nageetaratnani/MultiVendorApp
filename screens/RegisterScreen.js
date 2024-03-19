@@ -1,4 +1,4 @@
-import React, {useState, createRef} from 'react';
+import React, { useState, createRef } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -9,73 +9,74 @@ import {
   Keyboard,
   TouchableOpacity,
   ScrollView,
-} from 'react-native';
-
+} from "react-native";
 
 const RegisterScreen = (props) => {
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-  const [errortext, setErrortext] = useState('');
-  const [
-    isRegistraionSuccess,
-    setIsRegistraionSuccess
-  ] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [errortext, setErrortext] = useState("");
+  const [isRegistraionSuccess, setIsRegistraionSuccess] = useState(false);
 
   const emailInputRef = createRef();
   const PhoneInputRef = createRef();
   const passwordInputRef = createRef();
 
-  const handleSubmitButton = () => { 
-    
-    setIsRegistraionSuccess(true)
+  const handleSubmitButton = () => {
+    setIsRegistraionSuccess(true);
   };
   if (isRegistraionSuccess) {
     return (
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
-        }}>
+          justifyContent: "center",
+        }}
+      >
         <Image
-          source={require('./assets/order.png')}
+          source={require("./assets/order.png")}
           style={{
             height: 150,
-            resizeMode: 'contain',
-            alignSelf: 'center'
+            resizeMode: "contain",
+            alignSelf: "center",
           }}
         />
-        <Text style={styles.successTextStyle}>
-          Registration Successful
-        </Text>
+        <Text style={styles.successTextStyle}>Registration Successful</Text>
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
           onPress={() => {
-            setIsRegistraionSuccess(false)
-            props.navigation.navigate('Login')
-          }}>
+            setIsRegistraionSuccess(false);
+            props.navigation.navigate("Login");
+          }}
+        >
           <Text style={styles.buttonTextStyle}>Login Now</Text>
         </TouchableOpacity>
       </View>
     );
   }
   return (
-    <View style={{flex: 1}}>
+    <View
+      style={{
+        flex: 1,
+        marginTop: 16
+      }}
+    >
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
-          justifyContent: 'center',
-          alignContent: 'center',
-        }}>
-        <View style={{alignItems: 'center'}}>
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
+        <View style={{ alignItems: "center" }}>
           <Image
-            source={require('./assets/order.png')}
+            source={require("./assets/order.png")}
             style={{
-              width: '50%',
+              width: "50%",
               height: 100,
-              resizeMode: 'contain',
+              resizeMode: "contain",
               margin: 30,
             }}
           />
@@ -107,8 +108,7 @@ const RegisterScreen = (props) => {
               ref={emailInputRef}
               returnKeyType="next"
               onSubmitEditing={() =>
-                passwordInputRef.current &&
-                passwordInputRef.current.focus()
+                passwordInputRef.current && passwordInputRef.current.focus()
               }
               blurOnSubmit={false}
             />
@@ -116,9 +116,7 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserPassword) =>
-                setUserPassword(UserPassword)
-              }
+              onChangeText={(UserPassword) => setUserPassword(UserPassword)}
               underlineColorAndroid="#f000"
               placeholder="Enter Password"
               placeholderTextColor="#8b9cb5"
@@ -126,8 +124,7 @@ const RegisterScreen = (props) => {
               returnKeyType="next"
               secureTextEntry={true}
               onSubmitEditing={() =>
-                PhoneInputRef.current &&
-                PhoneInputRef.current.focus()
+                PhoneInputRef.current && PhoneInputRef.current.focus()
               }
               blurOnSubmit={false}
             />
@@ -146,15 +143,14 @@ const RegisterScreen = (props) => {
               blurOnSubmit={false}
             />
           </View>
-          {errortext != '' ? (
-            <Text style={styles.errorTextStyle}>
-              {errortext}
-            </Text>
+          {errortext != "" ? (
+            <Text style={styles.errorTextStyle}>{errortext}</Text>
           ) : null}
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            onPress={handleSubmitButton}>
+            onPress={handleSubmitButton}
+          >
             <Text style={styles.buttonTextStyle}>REGISTER</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
@@ -166,7 +162,7 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
   SectionStyle: {
-    flexDirection: 'row',
+    flexDirection: "row",
     height: 40,
     marginTop: 20,
     marginLeft: 35,
@@ -174,12 +170,12 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#FC6D3F',
+    backgroundColor: "#FC6D3F",
     borderWidth: 0,
-    color: '#FFFFFF',
-    borderColor: '#FC6D3F',
+    color: "#FFFFFF",
+    borderColor: "#FC6D3F",
     height: 40,
-    alignItems: 'center',
+    alignItems: "center",
     borderRadius: 30,
     marginLeft: 35,
     marginRight: 35,
@@ -187,27 +183,27 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTextStyle: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     paddingVertical: 10,
     fontSize: 16,
   },
   inputStyle: {
     flex: 1,
-    color: 'black',
+    color: "black",
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: '#dadae8',
+    borderColor: "#dadae8",
   },
   errorTextStyle: {
-    color: 'red',
-    textAlign: 'center',
+    color: "red",
+    textAlign: "center",
     fontSize: 14,
   },
   successTextStyle: {
-    color: 'black',
-    textAlign: 'center',
+    color: "black",
+    textAlign: "center",
     fontSize: 18,
     padding: 30,
   },

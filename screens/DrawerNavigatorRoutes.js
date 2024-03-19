@@ -14,6 +14,7 @@ import ProductDetail from "./ProductDetail";
 import BasketScreen from "./BasketScreen";
 import PreparingScreen from "./PreparingScreen";
 import DeliveryScreen from "./DeliveryScreen";
+import MapViewScreen from "./MapViewScreen";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,6 +27,14 @@ const homeScreenStack = ({ navigation }) => {
       <Stack.Screen
         name="ProductDetail"
         component={ProductDetail}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="MapView"
+        component={MapViewScreen}
         options={{
           presentation: "modal",
           headerShown: false,
@@ -56,6 +65,27 @@ const homeScreenStack = ({ navigation }) => {
     </Stack.Navigator>
   );
 };
+const viewProfileStack = ({ navigation }) => {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={HomeScreen} />
+    </Stack.Navigator>
+  );
+};
+const settingScreenStack = ({ navigation }) => {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={HomeScreen} />
+    </Stack.Navigator>
+  );
+};
+const termAndPrivacyPolicyStack = ({ navigation }) => {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={HomeScreen} />
+    </Stack.Navigator>
+  );
+};
 
 const DrawerNavigatorRoutes = (props) => {
   return (
@@ -63,7 +93,7 @@ const DrawerNavigatorRoutes = (props) => {
       screenOptions={{
         headerShown: false,
         drawerLabelStyle: {
-          color: "white",
+          color: "black",
         },
         drawerActiveBackgroundColor: "#FC6D3F",
       }}
@@ -73,6 +103,21 @@ const DrawerNavigatorRoutes = (props) => {
         name="homeScreenStack"
         options={{ drawerLabel: "Home" }}
         component={homeScreenStack}
+      />
+      <Drawer.Screen
+        name="viewProfileStack"
+        options={{ drawerLabel: "View Profile" }}
+        component={viewProfileStack}
+      />
+      <Drawer.Screen
+        name="settingScreenStack"
+        options={{ drawerLabel: "Settings" }}
+        component={settingScreenStack}
+      />
+      <Drawer.Screen
+        name="termAndPrivacyPolicyStack"
+        options={{ drawerLabel: "Term & Conditions / Privacy" }}
+        component={termAndPrivacyPolicyStack}
       />
     </Drawer.Navigator>
   );
