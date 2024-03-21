@@ -1,29 +1,25 @@
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import React, { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectRestaurant } from "../slices/restaurantSlice";
-import {
-  selectBasketItems,
-  selectBasketTotal,
-  selectBasketItemsWithId,
-} from "../slices/basketSlice";
+import { selectRestaurant, setOrders } from "../slices/restaurantSlice";
+import { selectBasketItems, selectBasketTotal } from "../slices/basketSlice";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native";
 import { XCircleIcon } from "react-native-heroicons/solid";
 import { ScrollView } from "react-native-gesture-handler";
-import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { urlFor } from "../sanity";
-import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import Currency from "react-currency-formatter";
 import BasketItem from "../components/BasketItem";
+import { setRestaurants } from "../slices/OrderSlice";
 
 const BasketScreen = ({ navigation }) => {
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
+  let orderedItems = [];
   const [groupItemsBasket, setGroupItemsBasket] = useState([]);
   const basketTotal = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
+  let restaurants = [];
 
   useMemo(() => {
     const groupedItems = items.reduce((results, item) => {
@@ -97,9 +93,19 @@ const BasketScreen = ({ navigation }) => {
 
           <TouchableOpacity
             className="rounded-lg bg-[#FC6D3F] p-4 shadow-xl"
-            onPress={() => navigation.navigate("Prepare")}
+            onPress={() => {
+              orderedItems.push({
+                restaurant: restaurant,
+                groupItemsBasket: groupItemsBasket,
+                dateAndTime: new Date()
+              });
+              restaurants.push(restaurant);
+              dispatch(setRestaurants(restaurants));
+              dispatch(setOrders(orderedItems));
+              navigation.navigate("Prepare");
+            }}
           >
-            <Text className="text-center text-white text-lg font-bold">
+            <Text className="text-center text-white text-md font-bold">
               Place Order
             </Text>
           </TouchableOpacity>

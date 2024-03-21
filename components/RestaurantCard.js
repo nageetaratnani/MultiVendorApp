@@ -96,6 +96,7 @@ export default function RestaurantCard({
           >
             {isFavorite ? (
               <HeartIcon color={"#FC6D3F"} size={16} />
+              
             ) : (
               <Favorite color={"#FC6D3F"} size={16} />
             )}

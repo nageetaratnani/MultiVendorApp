@@ -91,7 +91,7 @@ const LoginScreen = ({navigation}) => {
               style={styles.buttonStyle}
               activeOpacity={0.5}
               onPress={handleSubmitPress}>
-              <Text style={styles.buttonTextStyle}>LOGIN</Text>
+              <Text style={styles.buttonTextStyle}>Login</Text>
             </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}

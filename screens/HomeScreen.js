@@ -11,8 +11,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import {
-  ChevronDownIcon,
-  UserIcon,
   MagnifyingGlassIcon,
   PlusIcon,
   XCircleIcon,
@@ -85,7 +83,7 @@ const HomeScreen = ({ navigation }) => {
   }, [region]);
   const renderHeaderLeft = () => {
     const truncatedLocationName = truncateLocationName(
-      activeAddress.locationName ?? "current location",
+      activeAddress.locationName ?? "Current location",
       activeAddress.locationName ? 6 : 20
     );
     return (

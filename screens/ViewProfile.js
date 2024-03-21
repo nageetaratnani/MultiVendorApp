@@ -9,8 +9,11 @@ const ViewProfile = ({ navigation }) => {
   const profileData = {
     name: "user",
     email: "test@gmail.com",
-    address: activeAddress.locationName.trim() ?? null,
-    mobileNumber: "+1234567890",
+    address:
+      activeAddress.locationName === undefined
+        ? null
+        : activeAddress.locationName.trim(),
+    mobileNumber: "03042589022",
   };
 
   const renderHeaderLeft = () => {
@@ -50,7 +53,7 @@ const ViewProfile = ({ navigation }) => {
           <Text style={styles.value}>{profileData.mobileNumber}</Text>
         </View>
 
-        {profileData.address && (
+        {profileData.address !== null && (
           <View style={styles.detailContainer}>
             <Text style={styles.label}>Address:</Text>
             <Text style={styles.value}>{profileData.address}</Text>

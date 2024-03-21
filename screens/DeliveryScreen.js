@@ -15,9 +15,9 @@ import { setJSExceptionHandler } from "react-native-exception-handler";
 
 const DeliveryScreen = ({ navigation }) => {
 
-  setJSExceptionHandler((error,Fatal) => {
-    alert(error.name)
-  },true)
+  // setJSExceptionHandler((error,Fatal) => {
+  //   alert(error.name)
+  // },true)
 
   const restaurant = useSelector(selectRestaurant);
   return (

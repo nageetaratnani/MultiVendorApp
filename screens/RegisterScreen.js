@@ -60,7 +60,7 @@ const RegisterScreen = (props) => {
     <View
       style={{
         flex: 1,
-        marginTop: 16
+        marginTop: 16,
       }}
     >
       <ScrollView
@@ -116,6 +116,20 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
+              onChangeText={(phoneNo) => setPhoneNo(phoneNo)}
+              underlineColorAndroid="#f000"
+              placeholder="Enter Phone Number"
+              placeholderTextColor="#8b9cb5"
+              keyboardType="numeric"
+              ref={PhoneInputRef}
+              returnKeyType="next"
+              onSubmitEditing={Keyboard.dismiss}
+              blurOnSubmit={false}
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <TextInput
+              style={styles.inputStyle}
               onChangeText={(UserPassword) => setUserPassword(UserPassword)}
               underlineColorAndroid="#f000"
               placeholder="Enter Password"
@@ -129,20 +143,6 @@ const RegisterScreen = (props) => {
               blurOnSubmit={false}
             />
           </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={(phoneNo) => setPhoneNo(phoneNo)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Phone Number"
-              placeholderTextColor="#8b9cb5"
-              keyboardType="numeric"
-              ref={PhoneInputRef}
-              returnKeyType="next"
-              onSubmitEditing={Keyboard.dismiss}
-              blurOnSubmit={false}
-            />
-          </View>
           {errortext != "" ? (
             <Text style={styles.errorTextStyle}>{errortext}</Text>
           ) : null}
@@ -151,7 +151,7 @@ const RegisterScreen = (props) => {
             activeOpacity={0.5}
             onPress={handleSubmitButton}
           >
-            <Text style={styles.buttonTextStyle}>REGISTER</Text>
+            <Text style={styles.buttonTextStyle}>Register</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>

@@ -17,6 +17,7 @@ import DeliveryScreen from "./DeliveryScreen";
 import MapViewScreen from "./MapViewScreen";
 import ViewProfile from "./ViewProfile";
 import FavoriteScreen from "./FavoriteScreen";
+import Order from "./Order";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -81,10 +82,10 @@ const favouritesStack = ({ navigation }) => {
     </Stack.Navigator>
   );
 };
-const termAndPrivacyPolicyStack = ({ navigation }) => {
+const orderStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator initialRouteName="Order">
+      <Stack.Screen name="Order" component={Order} />
     </Stack.Navigator>
   );
 };
@@ -117,9 +118,9 @@ const DrawerNavigatorRoutes = (props) => {
         component={favouritesStack}
       />
       <Drawer.Screen
-        name="termAndPrivacyPolicyStack"
-        options={{ drawerLabel: "Term & Conditions / Privacy" }}
-        component={termAndPrivacyPolicyStack}
+        name="orderStack"
+        options={{ drawerLabel: "Orders" }}
+        component={orderStack}
       />
     </Drawer.Navigator>
   );
