@@ -7,13 +7,13 @@ import NavigationDrawerHeader from "../components/NavigationDrawerHeader";
 const ViewProfile = ({ navigation }) => {
   const activeAddress = useSelector(selectAddress);
   const profileData = {
-    name: "user",
+    name: "User",
     email: "test@gmail.com",
     address:
       activeAddress.locationName === undefined
         ? null
         : activeAddress.locationName.trim(),
-    mobileNumber: "03042589022",
+    mobileNumber: "03001234567",
   };
 
   const renderHeaderLeft = () => {

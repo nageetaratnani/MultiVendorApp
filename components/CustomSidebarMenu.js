@@ -17,7 +17,7 @@ const CustomSidebarMenu = (props) => {
           }}
           className=" h-7 w-7 bg-gray-300 p-4  rounded-full"
         />
-        <Text style={stylesSidebar.profileHeaderText}>Nageeta Kumari</Text>
+        <Text style={stylesSidebar.profileHeaderText}>User</Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
 
